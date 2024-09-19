@@ -17,15 +17,6 @@ resource "google_compute_subnetwork" "subnet_public" {
       0
     )
   }
-
-  # log_config {
-
-  #   content {
-  #     aggregation_interval = var.log_config.aggregation_interval
-  #     flow_sampling        = var.log_config.flow_sampling
-  #     metadata             = var.log_config.metadata
-  #   }
-  # }
 }
 
 # ---------------------------------------------------------------------------------------------------------------------
@@ -53,13 +44,4 @@ resource "google_compute_subnetwork" "subnet_private" {
       1 * (1 + var.secondary_cidr_subnetwork_spacing)
     )
   }
-
-  # log_config {
-
-  #   content {
-  #     aggregation_interval = var.log_config.aggregation_interval
-  #     flow_sampling        = var.log_config.flow_sampling
-  #     metadata             = var.log_config.metadata
-  #   }
-  # }
 }

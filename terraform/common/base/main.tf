@@ -29,7 +29,6 @@ locals {
   name    = "livekit-gke"
   project = var.project_id
   region  = var.region
-  zone    = "${local.region}-a"
   activate_apis = [
     "compute.googleapis.com",
     "container.googleapis.com",
@@ -44,16 +43,6 @@ module "project-services" {
   source        = "../../modules/project_services"
   project       = local.project
   activate_apis = local.activate_apis
-}
-resource "google_storage_bucket" "main" {
-  project       = local.project
-  name          = "${local.project}-${local.env}-devops"
-  storage_class = "STANDARD"
-  location      = local.region
-  force_destroy = false
-  versioning {
-    enabled = true
-  }
 }
 
 module "vpc" {

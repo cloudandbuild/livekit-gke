@@ -19,18 +19,18 @@ resource "google_compute_firewall" "firewalli-int" {
   source_ranges = [var.ip_cidr_range]
 }
 
-resource "google_compute_firewall" "allow-ingress-from-iap" {
-  name    = "${var.env}-allow-ingress-from-iap"
+resource "google_compute_firewall" "allow-livekit" {
+  name    = "${var.env}-allow-livekit"
   network = var.vpc_name
 
   allow {
-    protocol = "icmp"
-  }
-
-  allow {
     protocol = "tcp"
-    ports    = ["22"]
+    ports    = ["7881"]
+  }
+  allow {
+    protocol = "udp"
+    ports    = ["50000-60000"]
   }
 
-  source_ranges = ["35.235.240.0/20"] # IAP
+  source_ranges = ["0.0.0.0/0"]
 }

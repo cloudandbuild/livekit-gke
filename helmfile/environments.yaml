@@ -1,0 +1,12 @@
+environments:
+  demo:
+    kubeContext: gke_livekit-gke_asia-northeast1-c_demo-livekit-gke-cluster
+---
+environments:
+  {{ .Environment.Name }}:
+    kubeContext: "{{ .Environment.KubeContext }}"
+    missingFileHandler: Debug
+    secrets:
+      - ./config/{{ .Environment.Name }}-secrets.yaml
+    values:
+      - ./config/{{ .Environment.Name }}-values.yaml

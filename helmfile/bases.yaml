@@ -1,0 +1,4 @@
+# refered by releases/*/helmfile.yaml
+bases:
+  - ../../environments.yaml
+  - ../../templates.yaml

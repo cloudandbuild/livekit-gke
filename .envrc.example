@@ -1,0 +1,5 @@
+export HF_CF_TUNNEL_TOKEN=<cloudflare tunnel token>
+export HF_REDIS_PASSWORD=<redis password>
+export HF_LK_API_KEY=<your apikey>
+export HF_LK_API_SECRET=<your api secret>
+export TF_VAR_project_id=<google cloud project id>

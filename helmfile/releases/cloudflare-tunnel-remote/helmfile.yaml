@@ -1,0 +1,13 @@
+{{ readFile "../../bases.yaml" }}
+---
+repositories:
+  - name: cloudflare
+    url: https://cloudflare.github.io/helm-charts
+
+releases:
+  - name: cloudflare-tunnel-remote
+    chart: cloudflare/cloudflare-tunnel-remote
+    namespace: cloudflare
+    version: 0.1.1
+    inherit:
+      - template: default

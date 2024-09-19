@@ -1,0 +1,26 @@
+replicaCount: 1
+
+# Suggested value for gracefully terminate the pod: 5 hours
+terminationGracePeriodSeconds: 18000
+
+livekit:
+  # port: 7880
+  # Uncomment to enable prometheus metrics
+  # prometheus_port: 6789
+  log_level: info
+  rtc:
+    use_external_ip: true
+    # default ports used
+    port_range_start: 50000
+    port_range_end: 60000
+    tcp_port: 7881
+  redis:
+    address: redis-headless.redis.svc.cluster.local:6379
+    # db: 0
+    # username:
+    password: {{ requiredEnv "HF_REDIS_PASSWORD" | quote }}
+    # use_tls: true
+  # one or more API key/secret pairs
+  # see https://docs.livekit.io/guides/getting-started/#generate-api-key-and-secret
+  keys:
+    {{ requiredEnv "HF_LK_API_KEY" }}: {{ requiredEnv "HF_LK_API_SECRET" | quote }}
