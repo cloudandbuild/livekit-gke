@@ -1,0 +1,4 @@
+global:
+  redis:
+    password: {{ requiredEnv "HF_REDIS_PASSWORD" | quote }} 
+architecture: standalone

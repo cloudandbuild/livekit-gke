@@ -1,0 +1,9 @@
+{{ readFile "../../bases.yaml" }}
+---
+releases:
+  - name: redis
+    chart: oci://registry-1.docker.io/bitnamicharts/redis
+    namespace: redis
+    version: 20.1.3
+    inherit:
+      - template: default

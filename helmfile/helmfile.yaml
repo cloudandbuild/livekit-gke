@@ -1,0 +1,6 @@
+bases:
+  - ./environments.yaml
+  - ./templates.yaml
+---
+helmfiles:
+  - ./releases/**/helmfile.yaml

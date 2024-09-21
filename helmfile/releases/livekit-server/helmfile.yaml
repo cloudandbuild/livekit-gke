@@ -1,0 +1,13 @@
+{{ readFile "../../bases.yaml" }}
+---
+repositories:
+  - name: livekit
+    url: https://helm.livekit.io
+
+releases:
+  - name: livekit-server
+    chart: livekit/livekit-server
+    namespace: livekit
+    version: 1.7.2
+    inherit:
+      - template: default
